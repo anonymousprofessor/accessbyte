@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0e1012">
+    <title>Returning to AccessByteSolutions</title>
+    <style>
+        :root{font-family:system-ui,sans-serif;color:#eff4fa;background:#0e1012}*{box-sizing:border-box}body{min-height:100vh;margin:0;display:grid;place-items:center;padding:24px}.fallback{width:min(440px,100%);padding:32px;background:#151b22;border:1px solid #36485d;border-radius:12px}.fallback strong{display:block;color:#8ac4ed;font-size:12px;text-transform:uppercase}.fallback h1{margin:12px 0;font:700 32px/1.1 system-ui,sans-serif}.fallback p{color:#b8c8d9;line-height:1.6}.fallback a{display:inline-flex;min-height:46px;align-items:center;padding:0 16px;border-radius:6px;background:#8ac4ed;color:#101c28;text-decoration:none;font-weight:700}
+    </style>
+</head>
+<body>
+    <main class="fallback">
+        <strong>AccessByteSolutions</strong>
+        <h1>Taking you back to the page.</h1>
+        <p>If you are not redirected, use this link to return to the requested page.</p>
+        <a id="fallback-link" href="/">Continue to the site</a>
+    </main>
+    <script>
+        (()=>{
+            const project='/accessbytesolution';
+            const onProjectPages=location.hostname.endsWith('.github.io');
+            const base=onProjectPages?project:'';
+            let route=location.pathname;
+            if(base&&route.startsWith(base))route=route.slice(base.length)||'/';
+            const target=`${base}/#${route}${location.search}`;
+            document.getElementById('fallback-link').href=target;
+            location.replace(target);
+        })();
+    </script>
+</body>
+</html>
